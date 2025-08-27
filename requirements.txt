@@ -1,0 +1,6 @@
+fastapi[standard]
+uvicorn==0.35.0
+pydantic==2.11.7
+requests==2.32.5
+unidecode==1.4.0
+PyYAML==6.0.2
