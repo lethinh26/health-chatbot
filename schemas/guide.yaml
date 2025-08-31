@@ -13,10 +13,11 @@ topics:
 - id: register
   title: 'Hướng dẫn: Đăng ký tài khoản HMS'
   steps:
-  - Vào trang **Đăng ký** trên HMS Web.
-  - Nhập **email/số điện thoại** và **mật khẩu**.
-  - Nhập **OTP** (nếu được yêu cầu) để xác thực.
-  - Đăng nhập và **hoàn tất hồ sơ** (họ tên, ngày sinh...).
+  - Vào trang chủ https://whodev.top → nhấn **Login** (Đăng nhập) xong nhấn → Patient Registration.
+  - Hoặc ấn nút đặt lịch khám (Book Appointment) tại trang chủ. 
+  - Nhập đầy đủ thông tin vào biểu mẫu
+  - Rồi ấn Đăng ký (Register) để vào Dashboard.
+  - Sau khi đăng ký thành công, bạn có thể đặt lịch, xem hồ sơ và lời khuyên sức khỏe.
   synonyms:
   - đăng ký
   - đăng kí
@@ -28,9 +29,9 @@ topics:
 - id: login
   title: 'Hướng dẫn: Đăng nhập HMS'
   steps:
-  - Vào trang **Đăng nhập** trên HMS Web.
-  - Nhập **email/số điện thoại** và **mật khẩu**.
-  - 'Nếu quên mật khẩu: chọn **Quên mật khẩu** để nhận OTP / đặt lại.'
+  - Vào trang chủ https://whodev.top → nhấn **Login** (Đăng nhập).
+  - Nhập email và mật khẩu
+  - Rồi ấn đăng nhập để vào Dashboard.
   synonyms:
   - đăng nhập
   - dang nhap
@@ -40,9 +41,11 @@ topics:
 - id: book_appointment
   title: 'Hướng dẫn: Đặt lịch khám trên HMS'
   steps:
-  - Từ **Dashboard** → mở **Lịch khám**.
-  - Chọn **chuyên khoa/bác sĩ** và **thời gian** phù hợp.
-  - Xác nhận lịch và theo dõi **thông báo** trên HMS.
+  - Từ **Dashboard** → chọn **Book Appointment** (Đặt lịch).
+  - Chọn chuyên khoa hoặc tìm bác sĩ theo tên.
+  - Xem lịch còn trống của bác sĩ → chọn ngày/giờ phù hợp.
+  - Xác nhận thông tin lịch hẹn → **Book**.
+  - Theo dõi mục **Booked Appointments** để xem, đổi hoặc hủy lịch.
   synonyms:
   - đặt lịch
   - đặt lịch khám
@@ -51,26 +54,17 @@ topics:
   - appointment
   - đặt bác sĩ
   - dat bac si
-- id: update_profile
-  title: 'Hướng dẫn: Cập nhật hồ sơ cá nhân trên HMS'
-  steps:
-  - Vào **Hồ sơ cá nhân** trên HMS Web.
-  - Chỉnh sửa **chiều cao, cân nặng**, tiền sử bệnh (nếu có).
-  - Nhấn **Lưu** để áp dụng vào khuyến nghị.
-  synonyms:
-  - cập nhật hồ sơ
-  - sửa hồ sơ
-  - chỉnh sửa hồ sơ
-  - update profile
-  - profile
 - id: register_doctor
   title: 'Hướng dẫn: Đăng ký trở thành bác sĩ trên HMS'
   steps:
-  - Vào trang **Bác sĩ/Đối tác** trên HMS Web.
-  - Chọn **Đăng ký bác sĩ**, điền thông tin **hành nghề** và **phòng khám**.
-  - Tải lên **chứng chỉ hành nghề** / giấy tờ liên quan.
-  - Đặt **lịch làm việc** (khung giờ nhận lịch).
-  - Gửi hồ sơ và **chờ duyệt** từ quản trị hệ thống.
+  - Vào trang chủ → mở trang **Login** (Đăng nhập) → chọn **Doctor Registration**.
+  - Hệ thống chuyển đến mẫu đăng ký dành riêng cho bác sĩ/chuyên gia y tế.
+  - 'Điền thông tin bắt buộc: Email, Password, First Name, Last Name.'
+  - 'Bổ sung thông tin chuyên môn: Career Title, Department (chuyên khoa), Specialization, Designation, Institute.'
+  - 'Kinh nghiệm & chứng chỉ: Experience Years, Qualifications, License Number.'
+  - 'Thông tin cá nhân: Date of Birth, Gender, Blood Group, Phone Number, Address.'
+  - 'Giới thiệu: Biography (tiểu sử/ngắn gọn về kinh nghiệm).'
+  - Nhấn **Register** để hoàn tất. Hệ thống tạo tài khoản bác sĩ.
   synonyms:
   - đăng ký bác sĩ
   - đăng kí bác sĩ
