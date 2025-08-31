@@ -69,15 +69,23 @@ def compose(intent_id: str, payload: Dict[str, Any]) -> Answer:
     if numbers:
         blocks.append("Chỉ số:\n" + join_numbers(numbers))
     items = classification.get("items") if isinstance(classification, dict) else None
-    if items:
-        blocks.append("Tổng hợp theo chỉ số:\n" + render_items(items))
-    if targets:
-        blocks.append("Hướng dẫn sử dụng:\n" + "\n".join([f"- {t}" for t in targets]))
-    if actions:
-        blocks.append("Bạn nên:\n" + "\n".join([f"- {a}" for a in actions]))
-    if cautions:
-        blocks.append("Lưu ý:\n" + "\n".join([f"- {c}" for c in cautions]))
-
+    
+    # Nếu items chứa 'steps' => render như hướng dẫn và KHÔNG render "Tổng hợp theo chỉ số"
+    if items and any(isinstance(it, dict) and ("steps" in it) for it in items):
+        first = next(it for it in items if "steps" in it)
+        guide_steps = [str(s) for s in (first.get("steps") or [])]
+        if guide_steps:
+            blocks.append("Các bước thực hiện:\n" + "\n".join([f"- {s}" for s in guide_steps]))
+        items = None  # chặn render Tổng hợp theo chỉ số
+        if items:
+            blocks.append("Tổng hợp theo chỉ số:\n" + render_items(items))
+        if targets:
+            blocks.append("Hướng dẫn sử dụng:\n" + "\n".join([f"- {t}" for t in targets]))
+        if actions:
+            blocks.append("Bạn nên:\n" + "\n".join([f"- {a}" for a in actions]))
+        if cautions:
+            blocks.append("Lưu ý:\n" + "\n".join([f"- {c}" for c in cautions]))
+    
     text = "\n\n".join(blocks).strip()
 
     structured = AnswerStructured(

@@ -5,14 +5,22 @@ from urllib3.util.retry import Retry
 
 API_URL = "https://api-gateway.whodev.top/patients/health-records/patient/{patient_id}"
 
-# maintain
-
-# def session_retry(total: int = 3, backoff: float = 0.3) -> requests.Session:
-#     session = requests.Session()
-#     retry = Retry(total=total, backoff_factor=backoff, status_forcelist=[429, 500, 502, 503, 504], allowed_methods=["GET", "POST"])
-#     adapter = HTTPAdapter(max_retries=retry)
-#     session.mount("https://", adapter)
-#     return session
+def session_with_retry(status_retries: int = 1, connect_retries: int = 1, backoff_factor: float = 0.3) -> requests.Session:
+    retry = Retry(
+        total=None,
+        connect=connect_retries,
+        read=0,
+        status=status_retries,
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET"],
+        respect_retry_after_header=True,
+        backoff_factor=backoff_factor, # mỗi lần retry x0.3s tgian chờ tránh spam
+        raise_on_status=False,
+    )
+    s = requests.Session()
+    adapter = HTTPAdapter(max_retries=retry)
+    s.mount("https://", adapter)
+    return s
 
 
 def parse_bp(bp: str) -> Tuple[Optional[int], Optional[int]]:
@@ -37,26 +45,30 @@ def bmi(height_cm: Optional[float], weight_kg: Optional[float]) -> Optional[floa
         return None
     return round(float(weight_kg) / (h * h), 2)
 
-def build_profile_api(patient_id: str, token: str) -> tuple[list, dict]: # update retries and timeout
-    """Lấy data từ API xét nghiệm"""
-    if not token or not patient_id:
-        raise PermissionError("Thiếu token hoặc Patient-Id")
+def build_profile_api(patient_id: str, token: str) -> tuple[list, dict]:  # update retries and timeout
+    if not patient_id:
+        raise FileNotFoundError("Missing patient_id")
+    if not token:
+        raise PermissionError("Missing Authorization")
 
-    headers = {
-        "Authorization": token if token.lower().startswith("bearer ") else f"Bearer {token}"
-    }
-
-    # replace session_retry
+    authorization = token if token.lower().startswith("bearer ") else f"Bearer {token}"
     url = API_URL.format(patient_id=patient_id)
-    session = requests.Session()
-    adapter = requests.adapters.HTTPAdapter(max_retries=3)
-    session.mount("https://", adapter)
-    resp = session.get(url, headers=headers, timeout=10)
+    headers = {"Authorization": authorization}
 
-    if resp.status_code == 401:
-        raise PermissionError("AUTH_EXPIRED")
-    if resp.status_code == 404:
-        raise FileNotFoundError("PATIENT_NOT_FOUND")
+    try:
+        resp = session_with_retry().get(url, headers=headers, timeout=(3, 5)) # 
+    except requests.exceptions.Timeout as e:
+        raise TimeoutError("Upstream timed out") from e
+    except requests.exceptions.RequestException as e:
+        raise Exception(f"Upstream error: {e}") from e
+
+    status = resp.status_code
+    if status in (401, 403):
+        raise PermissionError("Unauthorized/Forbidden")
+    if status == 404:
+        raise FileNotFoundError("Patient not found")
+    if 500 <= status <= 599:
+        raise Exception(f"Upstream server error {status}")
 
     resp.raise_for_status()
     data = resp.json()

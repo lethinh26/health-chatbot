@@ -72,20 +72,20 @@ def execute(intent_id: str, slots: Dict[str, Any], profile: Dict[str, Any]) -> D
         # print(items)
 
         # de-dup
-        def _dedup(seq):
+        def dedup(seq):
             seen = set(); out = []
             for x in seq:
                 if x and x not in seen:
                     out.append(x); seen.add(x)
             return out
 
-        actions = _dedup(actions)[:10]
-        cautions = _dedup(cautions)[:6]
+        actions = dedup(actions)[:10]
+        cautions = dedup(cautions)[:6]
 
         if not items and not actions and not cautions:
             ls = lifestyle_config()
-            actions = _dedup((ls.get("diet_general") or []) + (ls.get("physical_activity") or []))[:8]
-            cautions = _dedup(ls.get("general_warnings") or [])[:5]
+            actions = dedup((ls.get("diet_general") or []) + (ls.get("physical_activity") or []))[:8]
+            cautions = dedup(ls.get("general_warnings") or [])[:5]
 
         return {
             "no_data": False,
@@ -156,14 +156,24 @@ def execute(intent_id: str, slots: Dict[str, Any], profile: Dict[str, Any]) -> D
                 "no_data": True,
                 "explanations": ["Xin lỗi, mình chưa tìm thấy chủ đề hướng dẫn phù hợp."],
             }
-        items = [ { "title": g.get("title") or topic_id, "steps": g.get("steps") or [] } ]
+
+        def strip_prefix(s: str) -> str:
+            s = (s or "").strip()
+            for pf in ("Hướng dẫn:", "Huong dan:", "Hướng dẫn:"):
+                if s.lower().startswith(pf.lower()):
+                    return s[len(pf):].strip()
+            return s
+
+        clean_title = strip_prefix(g.get("title") or topic_id)
+        steps = g.get("steps") or []
+
         return {
             "no_data": False,
+            "explanations": [f"Hướng dẫn: {clean_title}"],
+            "classification": {"items": [{"title": clean_title, "steps": steps}], "topic_id": g.get("id") or topic_id},
             "numbers": [],
             "actions": [],
             "cautions": [],
-            "explanations": [f"Hướng dẫn: {g.get('title') or topic_id}"],
-            "classification": {"items": items, "topic_id": g.get("id") or topic_id},
         }
 
     if intent_id == "fallback.clarify":
