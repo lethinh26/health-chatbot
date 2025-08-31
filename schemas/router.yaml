@@ -1,0 +1,22 @@
+bmi_classification_keywords:
+- gầy
+- béo
+- thừa cân
+- overweight
+- underweight
+- obese
+- béo phì
+greeting_synonyms:
+- xin chao
+- chao
+- chao ban
+- hello
+- hi
+- alo
+lab_summary_synonyms:
+- tong hop loi khuyen ve xet nghiem
+- tong hop xet nghiem
+- tom tat xet nghiem
+- ket luan xet nghiem
+- tong hop loi khuyen xet nghiem
+- tong hop loi khuyen

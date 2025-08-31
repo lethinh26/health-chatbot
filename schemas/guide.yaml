@@ -1,0 +1,224 @@
+topics:
+- id: health_recommendation
+  title: 'Hướng dẫn: Xem lời khuyên sức khỏe (Health Recommendation)'
+  steps:
+  - Từ **Dashboard** → mở **Health Recommendation**.
+  - Xem gợi ý **dinh dưỡng, vận động, giấc ngủ** theo chỉ số cá nhân.
+  - Cập nhật **BMI, huyết áp, đường huyết**… để hệ thống đề xuất chính xác hơn.
+  synonyms:
+  - xem lời khuyên
+  - khuyến nghị sức khỏe
+  - health recommendation
+  - recommendation
+- id: register
+  title: 'Hướng dẫn: Đăng ký tài khoản HMS'
+  steps:
+  - Vào trang **Đăng ký** trên HMS Web.
+  - Nhập **email/số điện thoại** và **mật khẩu**.
+  - Nhập **OTP** (nếu được yêu cầu) để xác thực.
+  - Đăng nhập và **hoàn tất hồ sơ** (họ tên, ngày sinh...).
+  synonyms:
+  - đăng ký
+  - đăng kí
+  - dang ky
+  - dang ki
+  - signup
+  - sign up
+  - tạo tài khoản
+- id: login
+  title: 'Hướng dẫn: Đăng nhập HMS'
+  steps:
+  - Vào trang **Đăng nhập** trên HMS Web.
+  - Nhập **email/số điện thoại** và **mật khẩu**.
+  - 'Nếu quên mật khẩu: chọn **Quên mật khẩu** để nhận OTP / đặt lại.'
+  synonyms:
+  - đăng nhập
+  - dang nhap
+  - login
+  - sign in
+  - signin
+- id: book_appointment
+  title: 'Hướng dẫn: Đặt lịch khám trên HMS'
+  steps:
+  - Từ **Dashboard** → mở **Lịch khám**.
+  - Chọn **chuyên khoa/bác sĩ** và **thời gian** phù hợp.
+  - Xác nhận lịch và theo dõi **thông báo** trên HMS.
+  synonyms:
+  - đặt lịch
+  - đặt lịch khám
+  - đặt khám
+  - dat lich
+  - appointment
+  - đặt bác sĩ
+  - dat bac si
+- id: update_profile
+  title: 'Hướng dẫn: Cập nhật hồ sơ cá nhân trên HMS'
+  steps:
+  - Vào **Hồ sơ cá nhân** trên HMS Web.
+  - Chỉnh sửa **chiều cao, cân nặng**, tiền sử bệnh (nếu có).
+  - Nhấn **Lưu** để áp dụng vào khuyến nghị.
+  synonyms:
+  - cập nhật hồ sơ
+  - sửa hồ sơ
+  - chỉnh sửa hồ sơ
+  - update profile
+  - profile
+- id: register_doctor
+  title: 'Hướng dẫn: Đăng ký trở thành bác sĩ trên HMS'
+  steps:
+  - Vào trang **Bác sĩ/Đối tác** trên HMS Web.
+  - Chọn **Đăng ký bác sĩ**, điền thông tin **hành nghề** và **phòng khám**.
+  - Tải lên **chứng chỉ hành nghề** / giấy tờ liên quan.
+  - Đặt **lịch làm việc** (khung giờ nhận lịch).
+  - Gửi hồ sơ và **chờ duyệt** từ quản trị hệ thống.
+  synonyms:
+  - đăng ký bác sĩ
+  - đăng kí bác sĩ
+  - làm bác sĩ
+  - trở thành bác sĩ
+  - dang ky bac si
+  - dang ki bac si
+- id: topic.login
+  title: Đăng nhập (Patient Account)
+  synonyms:
+  - dang nhap
+  - đăng nhập
+  - tai khoan
+  - tài khoản
+  - login
+  steps:
+  - Vào trang chủ https://whodev.top → nhấn **Login** (Đăng nhập).
+  - Nhập email và mật khẩu
+  - Rồi ấn đăng nhập để vào Dashboard.
+  notes:
+  - Sau khi đăng nhập thành công, bạn có thể đặt lịch, xem hồ sơ và lời khuyên sức
+    khỏe.
+- id: topic.register
+  title: Đăng ký (Patient Account)
+  synonyms:
+  - đăng ký
+  - dang ky
+  - dang ki
+  - đăng kí
+  - register
+  steps:
+  - Vào trang chủ https://whodev.top → nhấn **Login** (Đăng nhập) xong nhấn → Patient
+    Registration.
+  - Hoặc ấn nút đặt lịch khám (Book Appointment) tại trang chủ.
+  - Nhập đầy đủ thông tin vào biểu mẫu
+  - Rồi ấn Đăng ký (Register) để vào Dashboard.
+  notes:
+  - Sau khi đăng ký thành công, bạn có thể đặt lịch, xem hồ sơ và lời khuyên sức khỏe.
+- id: topic.book_appointment
+  title: Đặt lịch hẹn bác sĩ (Appointments / Book Appointment)
+  synonyms:
+  - dat lich
+  - đặt lịch
+  - dat kham
+  - đặt khám
+  - appointment
+  - book
+  - dat lich hen
+  - đặt lịch hẹn
+  - chon bac si dat lich
+  - chọn bác sĩ đặt lịch
+  - hen kham
+  - hẹn khám
+  steps:
+  - Từ **Dashboard** → chọn **Book Appointment** (Đặt lịch).
+  - Chọn chuyên khoa hoặc tìm bác sĩ theo tên.
+  - Xem lịch còn trống của bác sĩ → chọn ngày/giờ phù hợp.
+  - Xác nhận thông tin lịch hẹn → **Book**.
+  - Theo dõi mục **Booked Appointments** để xem, đổi hoặc hủy lịch.
+  notes:
+  - Nếu chưa đăng nhập, hệ thống sẽ yêu cầu **Login/Register** trước khi đặt lịch.
+  - Bạn có thể lọc bác sĩ theo chuyên khoa, kinh nghiệm hoặc đánh giá.
+- id: topic.doctors
+  title: Mục Bác sĩ (Doctors Section)
+  synonyms:
+  - bac si
+  - bác sĩ
+  - doctors
+  - chuyen khoa
+  - chuyên khoa
+  - tim bac si
+  - tìm bác sĩ
+  steps:
+  - Vào **Doctors** để xem danh sách bác sĩ theo chuyên khoa.
+  - Chọn **View** để xem hồ sơ bác sĩ (chuyên môn, học vị, kinh nghiệm).
+  - Từ hồ sơ bác sĩ, bạn có thể chuyển sang **Book Appointment** trực tiếp.
+  notes:
+  - Dùng bộ lọc để thu hẹp theo chuyên khoa, kinh nghiệm hoặc lịch trống.
+- id: topic.patient_dashboard
+  title: Dashboard bệnh nhân (Patient Dashboard)
+  synonyms:
+  - dashboard
+  - tong quan
+  - tổng quan
+  - trang chu sau dang nhap
+  - trang chủ sau đăng nhập
+  steps:
+  - 'Xem tổng quan: BMI, Blood Pressure, BMR (nếu có).'
+  - 'Theo dõi **Health Trends**: nhiệt độ, nhịp tim, đường huyết.'
+  - 'Truy cập nhanh: **Doctors**, **Health Recommendation**, **Appointments**, **Community**.'
+  notes:
+  - Một số ô hiển thị chỉ xuất hiện khi có dữ liệu đo gần nhất.
+- id: topic.health_recommendation
+  title: Xem lời khuyên sức khỏe (Health Recommendation)
+  synonyms:
+  - loi khuyen
+  - lời khuyên
+  - health recommendation
+  - tips
+  - khuyen nghi
+  - khuyến nghị
+  - xem loi khuyen bac si
+  - xem lời khuyên bác sĩ
+  steps:
+  - Từ **Dashboard** → mở mục **Health Recommendation**.
+  - Xem các gợi ý dinh dưỡng, vận động, giấc ngủ phù hợp chỉ số của bạn.
+  - Nếu có dữ liệu mới (ví dụ BMI, huyết áp), khuyến nghị sẽ cập nhật tương ứng.
+  notes:
+  - Lời khuyên hiển thị ở đây thuộc phần **hướng dẫn sử dụng hệ thống**.
+  - Khuyến cáo y tế cụ thể theo chỉ số (BMI, huyết áp…) sẽ do mô-đun tư vấn sức khỏe
+    cung cấp khi bạn hỏi trực tiếp chỉ số.
+- id: topic.community
+  title: Cộng đồng (HMS Community)
+  synonyms:
+  - cong dong
+  - cộng đồng
+  - community
+  - dien dan
+  - diễn đàn
+  steps:
+  - Vào **Community** để xem bài viết, đặt câu hỏi và trao đổi kinh nghiệm.
+  - Đăng bài mới, tải ảnh, tương tác **like/dislike**, bình luận.
+  notes:
+  - Tuân thủ quy tắc cộng đồng; tránh chia sẻ thông tin cá nhân nhạy cảm.
+- id: topic.doctor_registration
+  title: Đăng ký tài khoản bác sĩ (Doctor Registration)
+  synonyms:
+  - dang ky bac si
+  - đăng ký bác sĩ
+  - đăng kí bác sĩ
+  - dang ki lam bac si
+  - đăng kí làm bác sĩ
+  - doctor registration
+  - tai khoan bac si
+  - tài khoản bác sĩ
+  steps:
+  - Vào trang chủ → mở trang **Login** (Đăng nhập) → chọn **Doctor Registration**.
+  - Hệ thống chuyển đến mẫu đăng ký dành riêng cho bác sĩ/chuyên gia y tế.
+  - 'Điền thông tin bắt buộc: Email, Password, First Name, Last Name.'
+  - 'Bổ sung thông tin chuyên môn: Career Title, Department (chuyên khoa), Specialization,
+    Designation, Institute.'
+  - 'Kinh nghiệm & chứng chỉ: Experience Years, Qualifications, License Number.'
+  - 'Thông tin cá nhân: Date of Birth, Gender, Blood Group, Phone Number, Address.'
+  - 'Giới thiệu: Biography (tiểu sử/ngắn gọn về kinh nghiệm).'
+  - Nhấn **Register** để hoàn tất. Hệ thống tạo tài khoản bác sĩ.
+  notes:
+  - Sau khi đăng ký thành công, bác sĩ đăng nhập qua trang **Login** để quản lý hồ
+    sơ bệnh nhân, lịch hẹn, tư vấn trực tuyến.
+  - Quyền truy cập và cập nhật hồ sơ bệnh nhân phụ thuộc vào phân quyền hệ thống.
+  - 'Lưu ý: Cần cung cấp **License Number** và **Qualifications** chính xác để hệ
+    thống xác minh.'

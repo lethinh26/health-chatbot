@@ -1,0 +1,213 @@
+metrics:
+- id: bmi
+  title: Chỉ số khối cơ thể (BMI)
+  kind: range
+  synonyms:
+  - bmi
+  number:
+    value_from: vitals.bmi
+    unit: null
+    date_from: vitals.measured_at
+  categories:
+  - id: underweight
+    label: Gầy
+    range: <18.5
+  - id: normal
+    label: Bình thường
+    range: 18.5-23
+  - id: overweight_at_risk
+    label: Thừa cân
+    range: 23-25
+  - id: obese_I
+    label: Béo phì độ I
+    range: 25-30
+  - id: obese_II
+    label: Béo phì độ II
+    range: '>=30'
+  advice:
+    general: []
+    by_category:
+      underweight:
+      - 'Tăng năng lượng lành mạnh: ngũ cốc nguyên hạt, hạt, bơ đậu phộng, sữa/yogurt.'
+      - 'Tăng protein: cá, thịt nạc, trứng, đậu/đỗ, đậu phụ.'
+      normal:
+      - Duy trì chế độ ăn cân đối và hoạt động thể lực đều đặn.
+      overweight_at_risk:
+      - Giảm đồ ngọt, nước ngọt; ưu tiên thực phẩm tươi, ít chế biến.
+      obese_I:
+      - Theo dõi năng lượng, tăng vận động >=150 phút/tuần.
+      obese_II:
+      - Tham vấn bác sĩ dinh dưỡng để có kế hoạch giảm cân an toàn.
+  cautions: []
+- id: blood_pressure
+  title: Huyết áp
+  kind: logic
+  synonyms:
+  - huyet ap
+  - huyết áp
+  - blood pressure
+  - ha
+  - bp
+  number:
+    template: '{SBP}/{DBP}'
+    unit: mmHg
+    date_from: vitals.measured_at
+    variables:
+      SBP: vitals.sbp_mmHg
+      DBP: vitals.dbp_mmHg
+  variables:
+    SBP: vitals.sbp_mmHg
+    DBP: vitals.dbp_mmHg
+  categories:
+  - id: normal_bp
+    label: Huyết áp bình thường
+    rule: SBP<120 AND DBP<80
+  - id: elevated_bp
+    label: Tăng huyết áp nhẹ
+    rule: SBP>=120 AND SBP<130 AND DBP<80
+  - id: htn_stage1
+    label: Tăng huyết áp độ 1
+    rule: SBP>=130 AND SBP<140 OR DBP>=80 AND DBP<90
+  - id: htn_stage2
+    label: Tăng huyết áp độ 2
+    rule: SBP>=140 OR DBP>=90
+  advice:
+    general:
+    - Hạn chế muối ~5g/ngày; tránh đồ chế biến sẵn, nước chấm mặn.
+    - Ăn theo DASH/Địa Trung Hải; tăng rau, ngũ cốc nguyên hạt, đạm nạc.
+    by_category:
+      htn_stage1:
+      - 'Tăng vận động: >=150 phút/tuần cường độ vừa.'
+      - Giảm rượu bia; bỏ thuốc lá.
+      htn_stage2:
+      - Gặp bác sĩ để được đánh giá và điều trị sớm.
+  cautions: []
+- id: pulse_rate
+  title: Nhịp tim
+  kind: range
+  synonyms:
+  - nhip tim
+  - nhịp tim
+  - pulse
+  - heart rate
+  - hr
+  - nhiptim
+  number:
+    value_from: vitals.hr_bpm
+    unit: bpm
+    date_from: vitals.measured_at
+  categories:
+  - id: low
+    label: Chậm
+    range: <60
+  - id: normal
+    label: Bình thường
+    range: 60-100
+  - id: high
+    label: Nhanh
+    range: '>100'
+  advice:
+    general:
+    - Nghỉ ngơi đủ, giảm căng thẳng.
+    by_category: {}
+  cautions: []
+- id: body_temperature
+  title: Nhiệt độ cơ thể
+  kind: range
+  synonyms:
+  - nhiet do
+  - nhiệt độ
+  - temperature
+  - sot
+  - sốt
+  - nhietdo
+  number:
+    value_from: vitals.body_temp_c
+    unit: °C
+    date_from: vitals.measured_at
+  categories:
+  - id: normal
+    label: Bình thường
+    range: 36.1-37.2
+  - id: fever
+    label: Sốt
+    range: '>37.5'
+  advice:
+    general:
+    - Uống đủ nước, theo dõi triệu chứng.
+    by_category: {}
+  cautions: []
+- id: blood_sugar
+  title: Đường huyết
+  kind: range
+  synonyms:
+  - duong huyet
+  - đường huyết
+  - glucose
+  - duong mau
+  - đường máu
+  number:
+    value_from: labs.glucose_mmol_l
+    unit: mmol/L
+    date_from: vitals.measured_at
+  categories:
+  - id: normal
+    label: Bình thường
+    range: 4.0-5.5
+  - id: elevated
+    label: Cao
+    range: '>5.5'
+  advice:
+    general:
+    - Hạn chế đồ ngọt, theo dõi đường huyết định kỳ.
+    by_category: {}
+  cautions: []
+- id: height_cm
+  title: Chiều cao
+  kind: range
+  synonyms:
+  - chieu cao
+  - chiều cao
+  - height
+  - cm
+  number:
+    value_from: vitals.height_cm
+    unit: cm
+    date_from: vitals.measured_at
+  categories: []
+  advice:
+    general: []
+    by_category: {}
+  cautions: []
+- id: weight_kg
+  title: Cân nặng
+  kind: range
+  synonyms:
+  - can nang
+  - cân nặng
+  - weight
+  - kg
+  number:
+    value_from: vitals.weight_kg
+    unit: kg
+    date_from: vitals.measured_at
+  categories: []
+  advice:
+    general: []
+    by_category: {}
+  cautions: []
+lifestyle:
+  synonyms:
+  - loi khuyen
+  - lời khuyên
+  - khuyen nghi
+  - khuyến nghị
+  - lifestyle
+  - advice
+  - recommendation
+  diet_general:
+  - Ăn đa dạng, ưu tiên thực phẩm ít chế biến.
+  physical_activity:
+  - Tập thể dục đều đặn >=150 phút/tuần.
+  general_warnings:
+  - Nếu có triệu chứng bất thường, hãy liên hệ cơ sở y tế.
